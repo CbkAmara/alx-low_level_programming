@@ -1,4 +1,12 @@
-#include <stdio.h>
+#include <main.h>
+
+
+/**
+ * main - prints _putcher
+ * Return: Always 0.
+ *
+ */
+
 
 int main(void)
 {
