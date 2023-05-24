@@ -10,6 +10,6 @@
 
 int main(void)
 {
-	printf("_putcher\n");
+	printf("_putcher");
 	return (0);
 }
