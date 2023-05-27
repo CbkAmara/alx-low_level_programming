@@ -12,11 +12,11 @@ int main(void)
 {
 	int x, y, z;
 
-	for (x = '0'; x < '7'; x++)
+	for (x = '0'; x <= '7'; x++)
 	{
-		for (y = x + 1; y <= '8'; y++)
+		for (y = x + 1 ; y <= '8'; y++)
 		{
-			for (z = x = y + 1; z <= '9'; z++)
+			for (z = y + 1; z <= '9'; z++)
 			{
 				if (y != z && y != x)
 				{
