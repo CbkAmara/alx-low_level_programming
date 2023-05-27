@@ -20,13 +20,14 @@ int main(void)
 			{
 				if (y != z && y != x)
 				{
-					putchar(x)
+					putchar(x);
 					putchar(y);
-					putchar(z)
+					putchar(z);
+
 					if (x == '7' && y == '8' && z == '9')
-						continue;
-						putchar(',');
-						putchar(' ');
+					continue;
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
