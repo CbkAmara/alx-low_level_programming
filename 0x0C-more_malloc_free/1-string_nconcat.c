@@ -9,8 +9,9 @@
  * @s2: The second string
  * @n: The number of bytes to concatenate from s2
  *
- * Return: Pointer to the concatenated string (must be freed) or NULL on failure
+ * Return: Pointer to concatenated string (must be freed) or NULL on failure
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	/* Handle NULL strings by treating them as empty strings */
@@ -28,8 +29,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	/* Allocate memory for the concatenated string */
 	char *concatenated = malloc(s1_len + n + 1);
+
 	if (concatenated == NULL)
-		return NULL;
+		return (NULL);
 
 	/* Copy s1 into the concatenated string */
 	strcpy(concatenated, s1);
@@ -37,7 +39,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	/* Copy the first n characters of s2 into the concatenated string */
 	strncat(concatenated, s2, n);
 
-	return concatenated;
+	return (concatenated);
 }
 
 /**
@@ -45,6 +47,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  *
  * Return: Always 0
  */
+
 int main(void)
 {
 	char *s1 = "Hello, ";
@@ -52,15 +55,17 @@ int main(void)
 	unsigned int n = 5;
 
 	char *result = string_nconcat(s1, s2, n);
+
 	if (result != NULL)
 	{
 		printf("Concatenated string: %s\n", result);
 		free(result); /* Free the allocated memory */
 	}
+
 	else
 	{
 		printf("Failed to allocate memory.\n");
 	}
 
-	return 0;
+	return (0);
 }
