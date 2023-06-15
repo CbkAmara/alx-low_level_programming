@@ -1,7 +1,7 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.h"
 
 /**
  * string_nconcat - Concatenates two strings with the first n bytes of s2
@@ -14,52 +14,52 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	/* Handle NULL strings by treating them as empty strings */
+	unsigned int s1_len, s2_len, concat_len;
+	char *concat;
+
+	/* Treat NULL as empty strings */
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	unsigned int s1_len = strlen(s1);
-	unsigned int s2_len = strlen(s2);
+	s1_len = strlen(s1);
+	s2_len = strlen(s2);
 
-	/* Adjust n if it is greater or equal to the length of s2 */
+	/* Use the entire s2 string if n is greater or equal to its length */
 	if (n >= s2_len)
 		n = s2_len;
 
-	/* Allocate memory for the concatenated string */
-	char *concatenated = malloc(s1_len + n + 1);
+	concat_len = s1_len + n;
 
-	if (concatenated == NULL)
+	concat = malloc((concat_len + 1) * sizeof(char));
+	if (concat == NULL)
 		return (NULL);
 
-	/* Copy s1 into the concatenated string */
-	strcpy(concatenated, s1);
+	strncpy(concat, s1, s1_len);
+	strncat(concat, s2, n);
+	concat[concat_len] = '\0';
 
-	/* Copy the first n characters of s2 into the concatenated string */
-	strncat(concatenated, s2, n);
-
-	return (concatenated);
+	return (concat);
 }
 
 /**
- * main - Entry point
+ * main - Test the string_nconcat function
  *
  * Return: Always 0
  */
-
 int main(void)
 {
-	char *s1 = "Hello, ";
-	char *s2 = "world!";
-	unsigned int n = 5;
+	char *s1 = "Best ";
+	char *s2 = "School !!!";
+	unsigned int n = 6;
 
 	char *result = string_nconcat(s1, s2, n);
 
 	if (result != NULL)
 	{
 		printf("Concatenated string: %s\n", result);
-		free(result); /* Free the allocated memory */
+		free(result);
 	}
 
 	else
